@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #00f2fe,#2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: linear-gradient(135deg, #4facfe, #00f2fe,#2c5364);
+            padding: 40px 60px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .container h1 {
+            font-size: 26px;
+            color: #555;
+        }
+        .container h2 {
+            font-size: 34px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        .container p {
+            color: #302c2c;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .btn {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn.view {
+            background-color: #4facfe;
+            color: white;
+        }
+        .btn.add {
+            background-color: #00c853;
+            color: white;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to</h1>
+        <h2>Student Management System</h2>
+        <p>
+            Manage student records easily.<br>
+            Add new students or view existing student details.
+        </p>
+        <div class="btn-group">
+            <a href="/student_list/" class="btn view">View Students</a>
+            <a href="/student_post/" class="btn add">Add Student</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Student</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #4facfe, #00f2fe, #2c5364);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        background: #fff;
+        width: 420px;
+        padding: 30px 35px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        animation: slideIn 0.6s ease;
+      }
+
+      .form-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      form p {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        color: #555;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+      }
+
+      textarea {
+        resize: none;
+        height: 80px;
+      }
+      .button-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
+      }
+      .button-group button,
+      .button-group a {
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+      }
+      .btn-primary {
+        width: 50%;
+        margin-top: 10px;
+        padding: 16px;
+        background: #4facfe;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: #363d44;
+      }
+      .btn-secondary {
+        width: 50%;
+        margin-top: 10px;
+        padding: 16px;
+        background: #4facfe;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn-secondary:hover {
+        background: #363d44;
+      }
+
+      .errorlist {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 8px;
+        list-style: none;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h2>Add Student</h2>
+      {% if S_form.errors %}
+      <div class="alert error">Please correct the errors below.</div>
+      {% endif %}
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ S_form.non_field_errors }} {{ S_form.as_p }}
+        <div class="button-group">
+          <button type="submit" class="btn-primary">Save Student</button>
+          <a href="{% url 'homepage' %}" class="btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
